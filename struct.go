@@ -1,4 +1,4 @@
-package backendgcf
+package pasetobd
 
 import (
 	"go.mongodb.org/mongo-driver/bson/primitive"
@@ -6,9 +6,9 @@ import (
 )
 
 type User struct {
-	ID       primitive.ObjectID `bson:"_id,omitempty" json:"_id,omitempty"`
-	Username string             `json:"username" bson:"username"`
-	Password string             `json:"password" bson:"password"`
+	ID           primitive.ObjectID 	`bson:"_id,omitempty" json:"_id,omitempty"`
+	Username string `json:"username" bson:"username"`
+	Password string `json:"password" bson:"password"`
 	// Email		 string             	`bson:"email,omitempty" json:"email,omitempty"`
 }
 

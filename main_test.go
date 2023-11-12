@@ -1,4 +1,4 @@
-package backendgcf
+package pasetobd
 
 import (
 	"fmt"
@@ -16,7 +16,7 @@ import (
 // }
 
 func TestGeneratePasswordHash(t *testing.T) {
-	password := "riziq"
+	password := "begitulah"
 	hash, _ := HashPassword(password) // ignore error for the sake of simplicity
 	fmt.Println("Password:", password)
 	fmt.Println("Hash:    ", hash)
@@ -28,15 +28,15 @@ func TestGeneratePrivateKeyPaseto(t *testing.T) {
 	privateKey, publicKey := watoken.GenerateKey()
 	fmt.Println(privateKey)
 	fmt.Println(publicKey)
-	hasil, err := watoken.Encode("coba", privateKey)
+	hasil, err := watoken.Encode("serbaevent", privateKey)
 	fmt.Println(hasil, err)
 }
 
 func TestHashFunction(t *testing.T) {
-	mconn := SetConnection("MONGOSTRING", "nyoba")
+	mconn := SetConnection("MONGOSTRING", "PASETO1")
 	var userdata User
-	userdata.Username = "coba"
-	userdata.Password = "riziq"
+	userdata.Username = "serbaevent"
+	userdata.Password = "begitulah"
 
 	filter := bson.M{"username": userdata.Username}
 	res := atdb.GetOneDoc[User](mconn, "user", filter)
@@ -49,20 +49,20 @@ func TestHashFunction(t *testing.T) {
 }
 
 func TestIsPasswordValid(t *testing.T) {
-	mconn := SetConnection("MONGOSTRING", "nyoba")
+	mconn := SetConnection("MONGOSTRING", "PASETO1")
 	var userdata User
-	userdata.Username = "coba"
-	userdata.Password = "riziq"
+	userdata.Username = "serbaevent"
+	userdata.Password = "begitulah"
 
 	anu := IsPasswordValid(mconn, "user", userdata)
 	fmt.Println(anu)
 }
 
 func TestInsertUser(t *testing.T) {
-	mconn := SetConnection("MONGOSTRING", "nyoba")
+	mconn := SetConnection("MONGOSTRING", "PASETO1")
 	var userdata User
-	userdata.Username = "coba"
-	userdata.Password = "riziq"
+	userdata.Username = "serbaevent"
+	userdata.Password = "begitulah"
 
 	nama := InsertUser(mconn, "user", userdata)
 	fmt.Println(nama)
