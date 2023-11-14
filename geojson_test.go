@@ -3,9 +3,10 @@ package gcf
 import (
 	"context"
 	"fmt"
+	"testing"
+
 	pasproj "github.com/HRMonitorr/PasetoprojectBackend"
 	"github.com/whatsauth/watoken"
-	"testing"
 )
 
 //func TestGCHandlerFunc(t *testing.T) {
@@ -18,7 +19,7 @@ func TestGeneratePaseto(t *testing.T) {
 	//privateKey, publicKey := watoken.GenerateKey()
 	//fmt.Println(privateKey)
 	//fmt.Println(publicKey)
-	hasil, err := watoken.Encode("abdulzay", "PrivateKey")
+	hasil, err := watoken.Encode("abdulnizarabdul", "PrivateKey")
 	fmt.Println(hasil, err)
 }
 
@@ -44,9 +45,9 @@ func TestDeleteDataGeo(t *testing.T) {
 
 func TestInsertUser(t *testing.T) {
 	conn := GetConnectionMongo("MONGOSTRING", "gis")
-	pass, _ := pasproj.HashPass("zay")
+	pass, _ := pasproj.HashPass("nizarabdul")
 	data := RegisterStruct{
-		Username: "zay",
+		Username: "nizarabdul",
 		Password: pass,
 	}
 	ins := InsertUserdata(conn, data.Username, data.Password)
